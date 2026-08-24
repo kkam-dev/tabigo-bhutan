@@ -79,20 +79,11 @@
     overflow-x:hidden;
   }
 
-  .font-display{font-family:'Shippori Mincho', serif;}
-  .font-caption{font-family:'Cormorant Garamond','Times New Roman',serif;}
-
   a{color:inherit;}
   img,svg{display:block; max-width:100%;}
-
   :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
 
-  .wrap{
-    width:100%;
-    max-width:1140px;
-    margin:0 auto;
-    padding-inline:clamp(20px,5vw,48px);
-  }
+  .wrap{width:100%; max-width:1140px; margin:0 auto; padding-inline:clamp(20px,5vw,48px);}
 
   .eyebrow{
     font-family:'Cormorant Garamond', serif;
@@ -103,31 +94,17 @@
     margin:0 0 10px;
     display:flex; align-items:center; justify-content:center; gap:10px;
   }
-  .eyebrow::before, .eyebrow::after{
-    content:"";
-    width:22px; height:1px;
-    background:var(--gold);
-    opacity:0.7;
-  }
-  .eyebrow .jp{
-    font-family:'Noto Sans JP', sans-serif;
-    font-style:normal;
-    font-weight:600;
-    letter-spacing:0.06em;
-    color:var(--ink-muted);
-  }
+  .eyebrow::before, .eyebrow::after{content:""; width:22px; height:1px; background:var(--gold); opacity:0.7;}
+  .eyebrow .jp{font-family:'Noto Sans JP', sans-serif; font-style:normal; font-weight:600; letter-spacing:0.06em; color:var(--ink-muted);}
 
-  h1,h2,h3{
-    font-family:'Shippori Mincho', serif;
-    text-wrap:balance;
-    margin:0;
-    font-weight:600;
-  }
+  h1,h2,h3{font-family:'Shippori Mincho', serif; text-wrap:balance; margin:0; font-weight:600;}
+  .en{font-family:'Cormorant Garamond','Times New Roman',serif; color:var(--ink-muted);}
 
-  .en{
-    font-family:'Cormorant Garamond','Times New Roman',serif;
-    color:var(--ink-muted);
-  }
+  /* ---------- flags ---------- */
+  .flagpair{display:inline-flex; align-items:center; gap:7px;}
+  .flagpair .flag{width:25px; height:16.7px; border-radius:3px; overflow:hidden; box-shadow:0 0 0 1px var(--line); flex:none;}
+  .flagpair .flag svg{width:100%; height:100%; display:block;}
+  .flagpair .x{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--ink-muted); font-size:0.85rem;}
 
   /* ---------- header ---------- */
   header{
@@ -136,129 +113,85 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .header-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding-block:16px;
-  }
+  .header-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:16px;}
+  .header-left{display:flex; align-items:center; gap:16px; min-width:0;}
   .logo{
     display:flex; align-items:center; gap:10px;
     font-family:'Shippori Mincho', serif;
-    font-size:clamp(1.15rem,2vw,1.4rem);
+    font-size:clamp(1.1rem,2vw,1.4rem);
     font-weight:600;
-    letter-spacing:0.02em;
     text-decoration:none;
+    white-space:nowrap;
   }
   .logo-mark{width:24px; height:24px; color:var(--gold); flex:none;}
   .logo .en{font-size:0.6em; letter-spacing:0.08em; margin-left:2px;}
+  @media (max-width:600px){ .header-inner .flagpair{display:none;} }
   .header-cta{
     font-family:'Noto Sans JP', sans-serif;
-    font-size:0.92rem;
-    font-weight:600;
+    font-size:0.9rem; font-weight:600;
     padding:10px 20px;
     border:1px solid var(--ink);
     border-radius:999px;
     text-decoration:none;
     transition:background 0.2s ease, color 0.2s ease;
-    white-space:nowrap;
+    white-space:nowrap; flex:none;
   }
   .header-cta:hover{background:var(--ink); color:var(--bg);}
 
-  /* ---------- dividers: prayer flags (Bhutan) + seigaiha waves (Japan) ---------- */
+  /* ---------- dividers ---------- */
   .divider-wrap{max-width:1140px; margin:0 auto; padding-inline:clamp(20px,5vw,48px);}
   .divider{width:100%; height:34px; display:block;}
-  .flags .pole{stroke:var(--ink-muted); stroke-width:1; opacity:0.55;}
+  .flags-div .pole{stroke:var(--ink-muted); stroke-width:1; opacity:0.55;}
 
   /* ---------- hero ---------- */
   .hero{
     position:relative;
-    padding-top:clamp(64px,12vh,120px);
+    padding-top:clamp(56px,10vh,100px);
     padding-bottom:0;
     background:linear-gradient(180deg, var(--sky-a) 0%, var(--sky-b) 100%);
     overflow:hidden;
   }
-  .hero-inner{
-    position:relative; z-index:2;
-    text-align:center;
-    padding-bottom:clamp(60px,10vh,110px);
+  .hero-inner{position:relative; z-index:2; text-align:center; padding-bottom:clamp(60px,10vh,110px);}
+  .hero-flags{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:8px 20px; margin-bottom:26px;
+    border:1px solid var(--line); border-radius:999px; background:var(--surface);
+    font-size:0.85rem; letter-spacing:0.03em;
   }
-  .enso{
-    position:absolute; z-index:1;
-    top:50%; left:50%;
-    width:min(640px,80vw); height:min(640px,80vw);
-    transform:translate(-50%,-50%);
-    opacity:0.16;
-    pointer-events:none;
-  }
-  .hero h1{
-    font-size:clamp(2.3rem,6vw,4.1rem);
-    line-height:1.35;
-  }
-  .hero .en{
-    display:block;
-    margin-top:14px;
-    font-size:clamp(1.1rem,2.4vw,1.5rem);
-    font-style:italic;
-  }
-  .hero p.lede{
-    max-width:640px;
-    margin:32px auto 0;
-    font-size:1rem;
-    color:var(--ink-muted);
-  }
+  .hero-flags .label{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--ink-muted);}
+  .enso{position:absolute; z-index:1; top:50%; left:50%; width:min(640px,80vw); height:min(640px,80vw); transform:translate(-50%,-50%); opacity:0.16; pointer-events:none;}
+  .hero h1{font-size:clamp(2.2rem,5.6vw,3.9rem); line-height:1.35;}
+  .hero .en{display:block; margin-top:14px; font-size:clamp(1.05rem,2.3vw,1.45rem); font-style:italic;}
+  .hero p.lede{max-width:660px; margin:32px auto 0; font-size:1rem; color:var(--ink-muted);}
   .hero p.lede .en{display:block; margin-top:8px; font-size:0.95rem;}
   .hero-cta{
-    display:inline-block;
-    margin-top:36px;
-    padding:15px 34px;
+    display:inline-block; margin-top:36px; padding:15px 34px;
     background:linear-gradient(120deg, var(--gold), var(--accent));
-    color:var(--on-accent);
-    font-weight:700;
-    font-size:0.98rem;
-    letter-spacing:0.02em;
-    border-radius:999px;
-    text-decoration:none;
-    box-shadow:var(--shadow);
+    color:var(--on-accent); font-weight:700; font-size:0.98rem; letter-spacing:0.02em;
+    border-radius:999px; text-decoration:none; box-shadow:var(--shadow);
     transition:transform 0.2s ease;
   }
   .hero-cta:hover{transform:translateY(-2px);}
-
-  .ridges{
-    position:absolute; inset:0; z-index:1; pointer-events:none;
-  }
+  .ridges{position:absolute; inset:0; z-index:1; pointer-events:none;}
 
   /* ---------- sections ---------- */
-  section{padding-block:clamp(56px,9vh,96px);}
-  .section-head{
-    max-width:640px;
-    margin:0 auto 48px;
-    text-align:center;
-  }
-  .section-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);}
-  .section-head .sub{
-    margin-top:14px;
-    font-size:0.98rem;
-    color:var(--ink-muted);
-  }
-
-  .reveal{
-    opacity:0; transform:translateY(18px);
-    transition:opacity 0.7s ease, transform 0.7s ease;
-  }
+  section{padding-block:clamp(52px,8vh,88px);}
+  .section-head{max-width:660px; margin:0 auto 44px; text-align:center;}
+  .section-head h2{font-size:clamp(1.55rem,3.2vw,2.15rem);}
+  .section-head .sub{margin-top:14px; font-size:0.96rem; color:var(--ink-muted);}
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 
+  /* hook questions */
+  .hook-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px;}
+  .hook-card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px 24px;}
+  .hook-card .q{font-size:1rem; font-weight:600; margin-bottom:12px;}
+  .hook-card .a{font-size:0.9rem; color:var(--ink-muted); border-top:1px dashed var(--line); padding-top:12px; margin:0;}
+  .hook-card .a .en{display:block; margin-top:6px; font-style:italic; font-size:0.86rem;}
+
   /* concept */
-  .pillars{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:28px;
-  }
-  .pillar{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-top:3px solid var(--accent);
-    border-radius:4px 4px 18px 18px;
-    padding:32px 26px;
-  }
+  .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:28px;}
+  .pillar{background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:4px 4px 18px 18px; padding:32px 26px;}
   .pillar h3{font-size:1.2rem; margin-bottom:12px;}
   .pillar p{margin:0; font-size:0.92rem; color:var(--ink-muted);}
   .pillar p.en{margin-top:10px; font-size:0.88rem; font-style:italic;}
@@ -266,159 +199,111 @@
 
   /* why bhutan */
   .facts{background:var(--gold-soft);}
-  .fact-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:18px;
-    overflow:hidden;
-  }
+  .fact-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden;}
   .fact{background:var(--bg); padding:30px 24px;}
   .fact .icon{color:var(--gold);}
   .fact h3{font-size:1.05rem; margin-bottom:10px;}
   .fact p{margin:0; font-size:0.9rem; color:var(--ink-muted);}
   .fact p.en{margin-top:8px; font-size:0.86rem; font-style:italic;}
 
+  /* destinations */
+  .spot-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px;}
+  .spot-card{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:30px 26px;}
+  .spot-card .place-en{display:block; font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--accent); font-size:0.95rem; margin-top:2px; margin-bottom:14px;}
+  .spot-card p{margin:0 0 16px; font-size:0.92rem; color:var(--ink-muted);}
+  .spot-card p.en{font-style:italic; font-size:0.88rem;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{font-size:0.76rem; padding:5px 12px; border-radius:999px; border:1px solid var(--line); color:var(--ink-muted); background:var(--bg);}
+
   /* japan x bhutan / buddhism */
   .bond{background:var(--jade-soft);}
-  .bond-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:28px;
-  }
-  .bond-card{
-    background:var(--bg);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:32px 26px;
-    position:relative;
-  }
+  .bond-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:28px;}
+  .bond-card{background:var(--bg); border:1px solid var(--line); border-radius:18px; padding:32px 26px;}
   .bond-card .icon{color:var(--jade);}
   .bond-card h3{font-size:1.12rem; margin-bottom:12px;}
   .bond-card p{margin:0; font-size:0.92rem; color:var(--ink-muted);}
   .bond-card p.en{margin-top:10px; font-size:0.88rem; font-style:italic;}
 
+  /* sample plans */
+  .plans-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:30px; margin-bottom:48px;}
+  .plan-card{background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:clamp(26px,4vw,34px); display:flex; flex-direction:column; gap:16px;}
+  .plan-card h3{font-size:1.28rem;}
+  .plan-en{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--ink-muted); font-size:0.94rem; margin-top:-10px;}
+  .plan-day{display:grid; grid-template-columns:56px 1fr; gap:14px; padding-block:10px; border-top:1px solid var(--line); font-size:0.88rem;}
+  .plan-day:first-child{border-top:1px solid var(--line);}
+  .plan-day .d{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--accent);}
+  .plan-day .t{color:var(--ink-muted);}
+  .plan-note{font-size:0.8rem; color:var(--ink-muted); font-style:italic; margin:0;}
+  .plan-cta{align-self:flex-start; font-size:0.88rem; font-weight:600; padding:10px 22px; border-radius:999px; border:1px solid var(--ink); text-decoration:none;}
+  .plan-cta:hover{background:var(--ink); color:var(--bg);}
+  .note-box{max-width:840px; margin:0 auto; background:var(--jade-soft); border:1px solid var(--line); border-radius:18px; padding:clamp(24px,4vw,34px);}
+  .note-box h3{font-size:1.05rem; text-align:center; margin-bottom:22px;}
+  .note-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px;}
+  .note-item h4{font-size:0.96rem; margin:0 0 8px; font-family:'Shippori Mincho',serif;}
+  .note-item p{margin:0; font-size:0.87rem; color:var(--ink-muted);}
+  .note-item p.en{margin-top:6px; font-style:italic; font-size:0.83rem;}
+
   /* process */
-  .timeline{
-    position:relative;
-    max-width:720px;
-    margin:0 auto;
-  }
-  .timeline::before{
-    content:"";
-    position:absolute;
-    left:27px; top:8px; bottom:8px;
-    width:1px;
-    background:var(--line);
-  }
-  .step{
-    position:relative;
-    display:grid;
-    grid-template-columns:56px 1fr;
-    gap:20px;
-    padding-bottom:44px;
-  }
+  .timeline{position:relative; max-width:720px; margin:0 auto;}
+  .timeline::before{content:""; position:absolute; left:27px; top:8px; bottom:8px; width:1px; background:var(--line);}
+  .step{position:relative; display:grid; grid-template-columns:56px 1fr; gap:20px; padding-bottom:44px;}
   .step:last-child{padding-bottom:0;}
   .step .dot{
-    position:relative; z-index:2;
-    width:56px; height:56px;
-    border-radius:50%;
-    background:var(--surface);
-    border:1px solid var(--line);
+    position:relative; z-index:2; width:56px; height:56px; border-radius:50%;
+    background:var(--surface); border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
-    font-family:'Cormorant Garamond', serif;
-    font-style:italic;
-    font-size:1.3rem;
-    color:var(--accent);
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.3rem; color:var(--accent);
   }
   .step h3{font-size:1.1rem; margin-bottom:8px;}
   .step p{margin:0; font-size:0.92rem; color:var(--ink-muted);}
   .step p.en{margin-top:8px; font-size:0.88rem; font-style:italic;}
 
   /* guide */
-  .guide{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    align-items:center;
-  }
+  .guide{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
   @media (max-width:760px){ .guide{grid-template-columns:1fr;} }
   .guide-copy h2{font-size:clamp(1.5rem,3vw,2rem); margin-bottom:18px;}
   .guide-copy p{font-size:0.98rem; color:var(--ink-muted); margin:0 0 14px;}
   .guide-copy p.en{font-style:italic; font-size:0.92rem;}
-  .guide-art{
-    aspect-ratio:4/5;
-    border-radius:22px;
-    background:linear-gradient(160deg, var(--surface), var(--surface-2));
-    border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
-    overflow:hidden;
-  }
+  .guide-art{aspect-ratio:4/5; border-radius:22px; background:linear-gradient(160deg, var(--surface), var(--surface-2)); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; overflow:hidden;}
 
   /* contact */
-  .contact-box{
-    max-width:640px;
-    margin:0 auto;
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:clamp(28px,5vw,48px);
-  }
+  .contact-box{max-width:640px; margin:0 auto; background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:clamp(28px,5vw,48px);}
   .field{margin-bottom:20px; display:flex; flex-direction:column; gap:8px;}
   .field label{font-size:0.85rem; font-weight:600; letter-spacing:0.02em;}
   .field label .en{margin-left:8px; font-weight:400; font-style:italic; color:var(--ink-muted);}
   .field input, .field select, .field textarea{
-    font-family:inherit;
-    font-size:0.96rem;
-    padding:12px 14px;
-    border-radius:10px;
-    border:1px solid var(--line);
-    background:var(--bg);
-    color:var(--ink);
+    font-family:inherit; font-size:0.96rem; padding:12px 14px; border-radius:10px;
+    border:1px solid var(--line); background:var(--bg); color:var(--ink);
   }
-  .field input:focus, .field select:focus, .field textarea:focus{
-    outline:2px solid var(--accent); outline-offset:1px;
-  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--accent); outline-offset:1px;}
   .row-2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
   @media (max-width:520px){ .row-2{grid-template-columns:1fr;} }
   .submit-btn{
-    width:100%;
-    padding:15px;
-    background:linear-gradient(120deg, var(--gold), var(--accent));
-    color:var(--on-accent);
-    border:none;
-    border-radius:999px;
-    font-family:inherit;
-    font-weight:700;
-    font-size:0.98rem;
-    cursor:pointer;
+    width:100%; padding:15px; background:linear-gradient(120deg, var(--gold), var(--accent)); color:var(--on-accent);
+    border:none; border-radius:999px; font-family:inherit; font-weight:700; font-size:0.98rem; cursor:pointer;
     transition:transform 0.2s ease;
   }
   .submit-btn:hover{transform:translateY(-2px);}
-  .form-note{
-    margin-top:14px;
-    text-align:center;
-    font-size:0.82rem;
-    color:var(--ink-muted);
-  }
+  .form-note{margin-top:14px; text-align:center; font-size:0.82rem; color:var(--ink-muted);}
 
-  footer{
-    border-top:1px solid var(--line);
-    padding-block:36px;
-    text-align:center;
-  }
+  footer{border-top:1px solid var(--line); padding-block:36px; text-align:center;}
   footer .logo{justify-content:center; font-size:1.1rem;}
   footer p{font-size:0.82rem; color:var(--ink-muted); margin:10px 0 0;}
 </style>
 
 <header>
   <div class="wrap header-inner">
-    <a class="logo" href="#top">
-      <svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
-      旅Go Bhutan<span class="en">Tabi‑Go Bhutan</span>
-    </a>
+    <div class="header-left">
+      <a class="logo" href="#top">
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+        旅Go Bhutan<span class="en">Tabi‑Go Bhutan</span>
+      </a>
+      <span class="flagpair" aria-hidden="true">
+        <span class="flag"><svg viewBox="0 0 90 60"><rect width="90" height="60" fill="#fff"/><circle cx="45" cy="30" r="18" fill="#BC002D"/></svg></span>
+        <span class="x">×</span>
+        <span class="flag"><svg viewBox="0 0 90 60"><polygon points="0,0 90,0 0,60" fill="#FFD520"/><polygon points="90,0 90,60 0,60" fill="#FF4E12"/><path d="M22 47 C30 40 26 32 34 27 C42 22 38 14 46 12" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="11" r="3" fill="#fff"/><path d="M45.5 8.5l-2-3M50 8.5l2-3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><circle cx="26" cy="42" r="1.6" fill="#fff"/><circle cx="38" cy="24" r="1.6" fill="#fff"/></svg></span>
+      </span>
+    </div>
     <a class="header-cta" href="#contact">旅の相談をする</a>
   </div>
 </header>
@@ -434,6 +319,14 @@
       <path d="M100 20 A80 80 0 1 1 34 145" fill="none" stroke="var(--gold)" stroke-width="7" stroke-linecap="round"/>
     </svg>
     <div class="wrap hero-inner">
+      <span class="hero-flags">
+        <span class="flagpair">
+          <span class="flag"><svg viewBox="0 0 90 60"><rect width="90" height="60" fill="#fff"/><circle cx="45" cy="30" r="18" fill="#BC002D"/></svg></span>
+          <span class="x">×</span>
+          <span class="flag"><svg viewBox="0 0 90 60"><polygon points="0,0 90,0 0,60" fill="#FFD520"/><polygon points="90,0 90,60 0,60" fill="#FF4E12"/><path d="M22 47 C30 40 26 32 34 27 C42 22 38 14 46 12" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="11" r="3" fill="#fff"/><path d="M45.5 8.5l-2-3M50 8.5l2-3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><circle cx="26" cy="42" r="1.6" fill="#fff"/><circle cx="38" cy="24" r="1.6" fill="#fff"/></svg></span>
+        </span>
+        <span class="label">Japan – Bhutan</span>
+      </span>
       <h1>あなただけの旅程で、<br/>幸せの国へ。<span class="en">A personal itinerary to the Kingdom of Happiness.</span></h1>
       <p class="lede">日本語での相談から、現地ガイドとの同行まで。旅の計画から現地でのサポートまでを、ひとつの窓口で。
         <span class="en">From planning in Japanese to guided days on the ground — one point of contact for your whole trip.</span>
@@ -442,21 +335,38 @@
     </div>
   </section>
 
-  <div class="divider-wrap"><svg class="divider flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
+  <div class="divider-wrap"><svg class="divider flags-div" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
     <line class="pole" x1="0" y1="4" x2="1140" y2="4"/>
-    <polygon points="20,4 44,4 32,22" fill="var(--accent)"/>
-    <polygon points="120,4 144,4 132,22" fill="var(--gold)"/>
-    <polygon points="220,4 244,4 232,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
-    <polygon points="320,4 344,4 332,22" fill="var(--jade)"/>
-    <polygon points="420,4 444,4 432,22" fill="var(--accent)"/>
-    <polygon points="520,4 544,4 532,22" fill="var(--gold)"/>
-    <polygon points="620,4 644,4 632,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
-    <polygon points="720,4 744,4 732,22" fill="var(--jade)"/>
-    <polygon points="820,4 844,4 832,22" fill="var(--accent)"/>
-    <polygon points="920,4 944,4 932,22" fill="var(--gold)"/>
-    <polygon points="1020,4 1044,4 1032,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
-    <polygon points="1104,4 1128,4 1116,22" fill="var(--jade)"/>
+    <polygon points="20,4 44,4 32,22" fill="var(--accent)"/><polygon points="120,4 144,4 132,22" fill="var(--gold)"/>
+    <polygon points="220,4 244,4 232,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/><polygon points="320,4 344,4 332,22" fill="var(--jade)"/>
+    <polygon points="420,4 444,4 432,22" fill="var(--accent)"/><polygon points="520,4 544,4 532,22" fill="var(--gold)"/>
+    <polygon points="620,4 644,4 632,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/><polygon points="720,4 744,4 732,22" fill="var(--jade)"/>
+    <polygon points="820,4 844,4 832,22" fill="var(--accent)"/><polygon points="920,4 944,4 932,22" fill="var(--gold)"/>
+    <polygon points="1020,4 1044,4 1032,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/><polygon points="1104,4 1128,4 1116,22" fill="var(--jade)"/>
   </svg></div>
+
+  <section id="hook">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="jp">よくあるお悩み</span>Common questions</p>
+        <h2>こんな不安、ありませんか？</h2>
+      </div>
+      <div class="hook-grid reveal">
+        <div class="hook-card">
+          <p class="q">「初めてで、何から決めればいいか分からない」</p>
+          <p class="a">まずは気軽なご相談から。ヒアリングをもとに、一緒に旅程を組み立てていきます。<span class="en">Not sure where to start? A simple conversation is enough — we build the itinerary together from there.</span></p>
+        </div>
+        <div class="hook-card">
+          <p class="q">「専属ガイドと、そうでないツアーの違いが分からない」</p>
+          <p class="a">旅Go Bhutanは計画から現地案内までひとつの窓口。旅のあいだずっと同じ顔ぶれで対応します。<span class="en">With one point of contact from planning through the trip itself, nothing gets handed off along the way.</span></p>
+        </div>
+        <div class="hook-card">
+          <p class="q">「ビザや許可証の手続きが心配」</p>
+          <p class="a">ブータン入国には政府認定の手配会社を通じたビザが必要です。現地ガイドがすべて代行します。<span class="en">Entry requires a visa filed through a licensed local operator — our guide handles the whole process.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="concept">
     <div class="wrap">
@@ -480,22 +390,20 @@
         <div class="pillar reveal">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
           <h3>日本語での安心サポート</h3>
-          <p>出発前のご相談はもちろん、旅行中のやり取りも日本語で。困ったときすぐに頼れる存在でいます。</p>
-          <p class="en">Japanese‑language support before departure, and a reachable contact throughout the trip.</p>
+          <p>出発前のご相談はもちろん、旅行中のやり取りも日本語で。私自身が窓口になるか、現地の日本語対応スタッフがサポートします。</p>
+          <p class="en">Japanese‑language support before you go and throughout your trip — through me directly, or a Japanese‑speaking contact on the ground in Bhutan.</p>
         </div>
       </div>
     </div>
   </section>
 
   <div class="divider-wrap"><svg class="divider waves" viewBox="0 0 1140 34" aria-hidden="true">
-    <defs>
-      <pattern id="seigaiha1" width="30" height="15" patternUnits="userSpaceOnUse">
-        <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
-        <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
-        <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
-      </pattern>
-    </defs>
-    <rect width="1140" height="16" y="9" fill="url(#seigaiha1)"/>
+    <defs><pattern id="sg1" width="30" height="15" patternUnits="userSpaceOnUse">
+      <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
+      <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
+      <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
+    </pattern></defs>
+    <rect width="1140" height="16" y="9" fill="url(#sg1)"/>
   </svg></div>
 
   <section class="facts" id="why-bhutan">
@@ -533,17 +441,52 @@
     </div>
   </section>
 
-  <div class="divider-wrap"><svg class="divider flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
+  <div class="divider-wrap"><svg class="divider flags-div" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
     <line class="pole" x1="0" y1="4" x2="1140" y2="4"/>
-    <polygon points="60,4 84,4 72,22" fill="var(--jade)"/>
-    <polygon points="180,4 204,4 192,22" fill="var(--accent)"/>
-    <polygon points="300,4 324,4 312,22" fill="var(--gold)"/>
-    <polygon points="420,4 444,4 432,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
-    <polygon points="540,4 564,4 552,22" fill="var(--jade)"/>
-    <polygon points="660,4 684,4 672,22" fill="var(--accent)"/>
-    <polygon points="780,4 804,4 792,22" fill="var(--gold)"/>
-    <polygon points="900,4 924,4 912,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="60,4 84,4 72,22" fill="var(--jade)"/><polygon points="180,4 204,4 192,22" fill="var(--accent)"/>
+    <polygon points="300,4 324,4 312,22" fill="var(--gold)"/><polygon points="420,4 444,4 432,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="540,4 564,4 552,22" fill="var(--jade)"/><polygon points="660,4 684,4 672,22" fill="var(--accent)"/>
+    <polygon points="780,4 804,4 792,22" fill="var(--gold)"/><polygon points="900,4 924,4 912,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
     <polygon points="1040,4 1064,4 1052,22" fill="var(--jade)"/>
+  </svg></div>
+
+  <section id="spots">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="jp">主要な訪問地</span>Where you'll go</p>
+        <h2>パロ、ティンプー、プナカ ― 定番の三都市</h2>
+        <p class="sub">多くの旅程は、この3つの街を軸に組み立てます。<span class="en" style="display:block;">Most itineraries are built around these three towns.</span></p>
+      </div>
+      <div class="spot-grid reveal">
+        <div class="spot-card">
+          <h3>パロ<span class="place-en">Paro</span></h3>
+          <p>ブータン唯一の国際空港がある、旅の玄関口。標高3,000mの断崖に建つタクツァン僧院への参拝は、多くの旅人にとって旅のハイライトです。</p>
+          <p class="en">Home to Bhutan's only international airport. The climb to Paro Taktsang, perched at 3,000m, is the highlight for most travelers.</p>
+          <div class="chip-row"><span class="chip">タクツァン僧院</span><span class="chip">パロ・ゾン</span><span class="chip">キチュ・ラカン</span></div>
+        </div>
+        <div class="spot-card">
+          <h3>ティンプー<span class="place-en">Thimphu</span></h3>
+          <p>ブータンの首都でありながら、信号機のない静かな街。タシチョ・ゾンやメモリアル・チョルテンなど、政治と信仰が同居する中心地です。</p>
+          <p class="en">The capital — and, famously, without a single traffic light. Tashichho Dzong and the Memorial Chorten sit where governance and faith meet.</p>
+          <div class="chip-row"><span class="chip">タシチョ・ゾン</span><span class="chip">メモリアル・チョルテン</span><span class="chip">ウィークエンドマーケット</span></div>
+        </div>
+        <div class="spot-card">
+          <h3>プナカ<span class="place-en">Punakha</span></h3>
+          <p>かつての首都。ふたつの川に挟まれたプナカ・ゾンは、ブータンで最も美しいといわれる建築のひとつです。</p>
+          <p class="en">The former capital. Set where two rivers meet, Punakha Dzong is often called Bhutan's most beautiful building.</p>
+          <div class="chip-row"><span class="chip">プナカ・ゾン</span><span class="chip">スワイングブリッジ</span><span class="chip">チミ・ラカン</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-wrap"><svg class="divider waves" viewBox="0 0 1140 34" aria-hidden="true">
+    <defs><pattern id="sg2" width="30" height="15" patternUnits="userSpaceOnUse">
+      <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
+      <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
+      <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
+    </pattern></defs>
+    <rect width="1140" height="16" y="9" fill="url(#sg2)"/>
   </svg></div>
 
   <section class="bond" id="bond">
@@ -576,15 +519,82 @@
     </div>
   </section>
 
+  <div class="divider-wrap"><svg class="divider flags-div" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
+    <line class="pole" x1="0" y1="4" x2="1140" y2="4"/>
+    <polygon points="40,4 64,4 52,22" fill="var(--gold)"/><polygon points="160,4 184,4 172,22" fill="var(--jade)"/>
+    <polygon points="280,4 304,4 292,22" fill="var(--accent)"/><polygon points="400,4 424,4 412,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="520,4 544,4 532,22" fill="var(--gold)"/><polygon points="640,4 664,4 652,22" fill="var(--jade)"/>
+    <polygon points="760,4 784,4 772,22" fill="var(--accent)"/><polygon points="880,4 904,4 892,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="1020,4 1044,4 1032,22" fill="var(--gold)"/>
+  </svg></div>
+
+  <section id="plans">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="jp">モデルプラン</span>Sample itineraries</p>
+        <h2>旅のイメージをつかむ、2つのモデルプラン</h2>
+        <p class="sub">実際の旅程は、すべてあなたに合わせてつくります。まずはイメージとしてご覧ください。<span class="en" style="display:block;">Every real itinerary is built around you — these are here just to show what's possible.</span></p>
+      </div>
+      <div class="plans-grid reveal">
+        <div class="plan-card">
+          <div class="chip-row"><span class="chip">パロ</span><span class="chip">ティンプー</span><span class="chip">プナカ</span></div>
+          <div>
+            <h3>定番プラン ― はじめてのブータン</h3>
+            <p class="plan-en">The Classic Route — First Time in Bhutan</p>
+          </div>
+          <div>
+            <div class="plan-day"><span class="d">1</span><span class="t">日本発</span></div>
+            <div class="plan-day"><span class="d">2</span><span class="t">ブータン着、ティンプー観光</span></div>
+            <div class="plan-day"><span class="d">3</span><span class="t">プナカ観光</span></div>
+            <div class="plan-day"><span class="d">4</span><span class="t">タクツァン僧院参拝、パロ観光</span></div>
+            <div class="plan-day"><span class="d">5</span><span class="t">ブータン発</span></div>
+            <div class="plan-day"><span class="d">6</span><span class="t">日本着</span></div>
+          </div>
+          <p class="plan-note">※ サンプル旅程です。日数・訪問地はご希望に合わせて調整します。<span class="en" style="display:block;">A sample itinerary — the length and stops all flex around what you want.</span></p>
+          <a class="plan-cta" href="#contact">このプランについて相談する</a>
+        </div>
+        <div class="plan-card">
+          <div class="chip-row"><span class="chip">パロ</span><span class="chip">ティンプー</span></div>
+          <div>
+            <h3>短期集中プラン</h3>
+            <p class="plan-en">The Focused Route — A Shorter Window</p>
+          </div>
+          <div>
+            <div class="plan-day"><span class="d">1</span><span class="t">日本発</span></div>
+            <div class="plan-day"><span class="d">2</span><span class="t">ブータン着、ティンプー観光</span></div>
+            <div class="plan-day"><span class="d">3</span><span class="t">タクツァン僧院参拝、パロ観光</span></div>
+            <div class="plan-day"><span class="d">4</span><span class="t">ブータン発</span></div>
+            <div class="plan-day"><span class="d">5</span><span class="t">日本着</span></div>
+          </div>
+          <p class="plan-note">※ 4〜5日間でも、ブータンの魅力は十分に味わえます。<span class="en" style="display:block;">Even four or five days is enough to feel what makes Bhutan different.</span></p>
+          <a class="plan-cta" href="#contact">このプランについて相談する</a>
+        </div>
+      </div>
+      <div class="note-box reveal">
+        <h3><span class="jp">ご旅行前に知っておきたいこと</span></h3>
+        <div class="note-grid">
+          <div class="note-item">
+            <h4>ビザについて</h4>
+            <p>ブータン入国には査証(ビザ)が必要です。個人での取得はできず、政府認定の手配会社を通じて申請します。現地ガイドがすべて代行しますので、ご安心ください。</p>
+            <p class="en">Entry requires a visa that can't be arranged individually — it's filed through a government‑licensed operator. Our local guide handles the whole process.</p>
+          </div>
+          <div class="note-item">
+            <h4>パスポートについて</h4>
+            <p>滞在日数に加え、6ヶ月以上の残存有効期間があると安心です。</p>
+            <p class="en">A validity of at least six months beyond your stay is the safe rule of thumb.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="divider-wrap"><svg class="divider waves" viewBox="0 0 1140 34" aria-hidden="true">
-    <defs>
-      <pattern id="seigaiha2" width="30" height="15" patternUnits="userSpaceOnUse">
-        <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
-        <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
-        <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
-      </pattern>
-    </defs>
-    <rect width="1140" height="16" y="9" fill="url(#seigaiha2)"/>
+    <defs><pattern id="sg3" width="30" height="15" patternUnits="userSpaceOnUse">
+      <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+      <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+      <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+    </pattern></defs>
+    <rect width="1140" height="16" y="9" fill="url(#sg3)"/>
   </svg></div>
 
   <section id="process">
@@ -638,17 +648,14 @@
     </div>
   </section>
 
-  <div class="divider-wrap"><svg class="divider flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
+  <div class="divider-wrap"><svg class="divider flags-div" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
     <line class="pole" x1="0" y1="4" x2="1140" y2="4"/>
-    <polygon points="40,4 64,4 52,22" fill="var(--gold)"/>
-    <polygon points="160,4 184,4 172,22" fill="var(--jade)"/>
-    <polygon points="280,4 304,4 292,22" fill="var(--accent)"/>
-    <polygon points="400,4 424,4 412,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
-    <polygon points="520,4 544,4 532,22" fill="var(--gold)"/>
-    <polygon points="640,4 664,4 652,22" fill="var(--jade)"/>
-    <polygon points="760,4 784,4 772,22" fill="var(--accent)"/>
-    <polygon points="880,4 904,4 892,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
-    <polygon points="1020,4 1044,4 1032,22" fill="var(--gold)"/>
+    <polygon points="20,4 44,4 32,22" fill="var(--accent)"/><polygon points="120,4 144,4 132,22" fill="var(--gold)"/>
+    <polygon points="220,4 244,4 232,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/><polygon points="320,4 344,4 332,22" fill="var(--jade)"/>
+    <polygon points="420,4 444,4 432,22" fill="var(--accent)"/><polygon points="520,4 544,4 532,22" fill="var(--gold)"/>
+    <polygon points="620,4 644,4 632,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/><polygon points="720,4 744,4 732,22" fill="var(--jade)"/>
+    <polygon points="820,4 844,4 832,22" fill="var(--accent)"/><polygon points="920,4 944,4 932,22" fill="var(--gold)"/>
+    <polygon points="1020,4 1044,4 1032,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/><polygon points="1104,4 1128,4 1116,22" fill="var(--jade)"/>
   </svg></div>
 
   <section id="guide">
@@ -658,8 +665,8 @@
         <h2>ブータンを知り尽くしたガイドが、隣にいる。</h2>
         <p>ブータン国内を熟知した現地ガイドが、旅のあいだずっと同行します。僧院や渓谷の案内はもちろん、英語でのやり取りも可能です。</p>
         <p class="en">A Bhutan‑based guide travels with you throughout your trip — comfortable in English, from monastery visits to mountain valleys.</p>
-        <p>日本語でのやり取りが必要な場面では、旅Go Bhutanが間に入ってサポートします。</p>
-        <p class="en">Whenever Japanese‑language support is needed, Tabi‑Go Bhutan steps in as your bridge.</p>
+        <p>日本語でのやり取りが必要な場面では、私自身が間に入るか、現地の日本語対応スタッフが対応します。どちらの形でも、安心して旅を進められる体制を整えています。</p>
+        <p class="en">Whenever Japanese‑language support is needed, either I step in directly, or a Japanese‑speaking contact on the ground in Bhutan helps out — either way, you're covered.</p>
       </div>
       <div class="guide-art reveal" aria-hidden="true">
         <svg viewBox="0 0 300 375" width="72%">
@@ -675,14 +682,12 @@
   </section>
 
   <div class="divider-wrap"><svg class="divider waves" viewBox="0 0 1140 34" aria-hidden="true">
-    <defs>
-      <pattern id="seigaiha3" width="30" height="15" patternUnits="userSpaceOnUse">
-        <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-        <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-        <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
-      </pattern>
-    </defs>
-    <rect width="1140" height="16" y="9" fill="url(#seigaiha3)"/>
+    <defs><pattern id="sg4" width="30" height="15" patternUnits="userSpaceOnUse">
+      <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.5"/>
+      <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.5"/>
+      <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.5"/>
+    </pattern></defs>
+    <rect width="1140" height="16" y="9" fill="url(#sg4)"/>
   </svg></div>
 
   <section id="contact">
