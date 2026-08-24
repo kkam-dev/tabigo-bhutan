@@ -5,52 +5,61 @@
 
 <style>
   :root{
-    --bg:#EDE7D6;
-    --surface:#E1D8BF;
-    --surface-2:#D6CBAC;
-    --ink:#23252E;
-    --ink-muted:#5C5A66;
-    --accent:#B26F1B;
-    --accent-soft:#B26F1B1a;
-    --pine:#3F5648;
-    --pine-soft:#3F56481a;
-    --line:rgba(35,37,46,0.16);
-    --sky-a:#EDE7D6;
-    --sky-b:#DCCFA6;
-    --shadow:0 18px 40px -22px rgba(35,26,10,0.35);
+    --bg:#F2E8D4;
+    --surface:#E8D9AF;
+    --surface-2:#DCC688;
+    --ink:#221708;
+    --ink-muted:#5B4A32;
+    --accent:#C23B22;
+    --accent-soft:#C23B221f;
+    --gold:#B8862B;
+    --gold-soft:#B8862B24;
+    --jade:#2F5D4E;
+    --jade-soft:#2F5D4E1f;
+    --on-accent:#221305;
+    --line:rgba(34,23,8,0.18);
+    --sky-a:#F2E8D4;
+    --sky-b:#E3C98C;
+    --shadow:0 18px 40px -20px rgba(40,20,5,0.4);
   }
 
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#1B1C24;
-      --surface:#242531;
-      --surface-2:#2E3040;
-      --ink:#EDE6D5;
-      --ink-muted:#A7A3B4;
-      --accent:#E2A24B;
-      --accent-soft:#E2A24B26;
-      --pine:#8CAA96;
-      --pine-soft:#8CAA9626;
-      --line:rgba(237,230,213,0.16);
-      --sky-a:#1B1C24;
-      --sky-b:#2B2A3A;
-      --shadow:0 18px 46px -20px rgba(0,0,0,0.6);
+      --bg:#17110A;
+      --surface:#241B10;
+      --surface-2:#332512;
+      --ink:#F2E8D4;
+      --ink-muted:#C7B48D;
+      --accent:#E1573A;
+      --accent-soft:#E1573A2e;
+      --gold:#E0B24A;
+      --gold-soft:#E0B24A2e;
+      --jade:#6FA28F;
+      --jade-soft:#6FA28F2e;
+      --on-accent:#1C0F03;
+      --line:rgba(242,232,212,0.18);
+      --sky-a:#17110A;
+      --sky-b:#33230F;
+      --shadow:0 18px 46px -18px rgba(0,0,0,0.65);
     }
   }
   :root[data-theme="dark"]{
-    --bg:#1B1C24;
-    --surface:#242531;
-    --surface-2:#2E3040;
-    --ink:#EDE6D5;
-    --ink-muted:#A7A3B4;
-    --accent:#E2A24B;
-    --accent-soft:#E2A24B26;
-    --pine:#8CAA96;
-    --pine-soft:#8CAA9626;
-    --line:rgba(237,230,213,0.16);
-    --sky-a:#1B1C24;
-    --sky-b:#2B2A3A;
-    --shadow:0 18px 46px -20px rgba(0,0,0,0.6);
+    --bg:#17110A;
+    --surface:#241B10;
+    --surface-2:#332512;
+    --ink:#F2E8D4;
+    --ink-muted:#C7B48D;
+    --accent:#E1573A;
+    --accent-soft:#E1573A2e;
+    --gold:#E0B24A;
+    --gold-soft:#E0B24A2e;
+    --jade:#6FA28F;
+    --jade-soft:#6FA28F2e;
+    --on-accent:#1C0F03;
+    --line:rgba(242,232,212,0.18);
+    --sky-a:#17110A;
+    --sky-b:#33230F;
+    --shadow:0 18px 46px -18px rgba(0,0,0,0.65);
   }
 
   *{box-sizing:border-box;}
@@ -92,6 +101,13 @@
     letter-spacing:0.14em;
     color:var(--accent);
     margin:0 0 10px;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+  }
+  .eyebrow::before, .eyebrow::after{
+    content:"";
+    width:22px; height:1px;
+    background:var(--gold);
+    opacity:0.7;
   }
   .eyebrow .jp{
     font-family:'Noto Sans JP', sans-serif;
@@ -99,7 +115,6 @@
     font-weight:600;
     letter-spacing:0.06em;
     color:var(--ink-muted);
-    margin-right:0.6em;
   }
 
   h1,h2,h3{
@@ -126,14 +141,15 @@
     padding-block:16px;
   }
   .logo{
-    display:flex; align-items:baseline; gap:10px;
+    display:flex; align-items:center; gap:10px;
     font-family:'Shippori Mincho', serif;
     font-size:clamp(1.15rem,2vw,1.4rem);
     font-weight:600;
     letter-spacing:0.02em;
     text-decoration:none;
   }
-  .logo .en{font-size:0.6em; letter-spacing:0.08em;}
+  .logo-mark{width:24px; height:24px; color:var(--gold); flex:none;}
+  .logo .en{font-size:0.6em; letter-spacing:0.08em; margin-left:2px;}
   .header-cta{
     font-family:'Noto Sans JP', sans-serif;
     font-size:0.92rem;
@@ -147,13 +163,10 @@
   }
   .header-cta:hover{background:var(--ink); color:var(--bg);}
 
-  /* ---------- prayer-flag divider ---------- */
-  .flags{
-    width:100%;
-    height:34px;
-    display:block;
-  }
-  .flags-wrap{max-width:1140px; margin:0 auto; padding-inline:clamp(20px,5vw,48px);}
+  /* ---------- dividers: prayer flags (Bhutan) + seigaiha waves (Japan) ---------- */
+  .divider-wrap{max-width:1140px; margin:0 auto; padding-inline:clamp(20px,5vw,48px);}
+  .divider{width:100%; height:34px; display:block;}
+  .flags .pole{stroke:var(--ink-muted); stroke-width:1; opacity:0.55;}
 
   /* ---------- hero ---------- */
   .hero{
@@ -167,6 +180,14 @@
     position:relative; z-index:2;
     text-align:center;
     padding-bottom:clamp(60px,10vh,110px);
+  }
+  .enso{
+    position:absolute; z-index:1;
+    top:50%; left:50%;
+    width:min(640px,80vw); height:min(640px,80vw);
+    transform:translate(-50%,-50%);
+    opacity:0.16;
+    pointer-events:none;
   }
   .hero h1{
     font-size:clamp(2.3rem,6vw,4.1rem);
@@ -189,8 +210,8 @@
     display:inline-block;
     margin-top:36px;
     padding:15px 34px;
-    background:var(--accent);
-    color:#221505;
+    background:linear-gradient(120deg, var(--gold), var(--accent));
+    color:var(--on-accent);
     font-weight:700;
     font-size:0.98rem;
     letter-spacing:0.02em;
@@ -234,15 +255,9 @@
   .pillar{
     background:var(--surface);
     border:1px solid var(--line);
-    border-radius:18px;
+    border-top:3px solid var(--accent);
+    border-radius:4px 4px 18px 18px;
     padding:32px 26px;
-  }
-  .pillar .num{
-    font-family:'Cormorant Garamond', serif;
-    font-style:italic;
-    color:var(--accent);
-    font-size:1rem;
-    margin-bottom:14px;
   }
   .pillar h3{font-size:1.2rem; margin-bottom:12px;}
   .pillar p{margin:0; font-size:0.92rem; color:var(--ink-muted);}
@@ -250,9 +265,7 @@
   .icon{width:34px; height:34px; margin-bottom:16px; color:var(--accent);}
 
   /* why bhutan */
-  .facts{
-    background:var(--pine-soft);
-  }
+  .facts{background:var(--gold-soft);}
   .fact-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -262,14 +275,30 @@
     border-radius:18px;
     overflow:hidden;
   }
-  .fact{
-    background:var(--bg);
-    padding:30px 24px;
-  }
-  .fact .icon{color:var(--pine);}
+  .fact{background:var(--bg); padding:30px 24px;}
+  .fact .icon{color:var(--gold);}
   .fact h3{font-size:1.05rem; margin-bottom:10px;}
   .fact p{margin:0; font-size:0.9rem; color:var(--ink-muted);}
   .fact p.en{margin-top:8px; font-size:0.86rem; font-style:italic;}
+
+  /* japan x bhutan / buddhism */
+  .bond{background:var(--jade-soft);}
+  .bond-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:28px;
+  }
+  .bond-card{
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:32px 26px;
+    position:relative;
+  }
+  .bond-card .icon{color:var(--jade);}
+  .bond-card h3{font-size:1.12rem; margin-bottom:12px;}
+  .bond-card p{margin:0; font-size:0.92rem; color:var(--ink-muted);}
+  .bond-card p.en{margin-top:10px; font-size:0.88rem; font-style:italic;}
 
   /* process */
   .timeline{
@@ -338,9 +367,7 @@
     padding:clamp(28px,5vw,48px);
   }
   .field{margin-bottom:20px; display:flex; flex-direction:column; gap:8px;}
-  .field label{
-    font-size:0.85rem; font-weight:600; letter-spacing:0.02em;
-  }
+  .field label{font-size:0.85rem; font-weight:600; letter-spacing:0.02em;}
   .field label .en{margin-left:8px; font-weight:400; font-style:italic; color:var(--ink-muted);}
   .field input, .field select, .field textarea{
     font-family:inherit;
@@ -359,8 +386,8 @@
   .submit-btn{
     width:100%;
     padding:15px;
-    background:var(--accent);
-    color:#221505;
+    background:linear-gradient(120deg, var(--gold), var(--accent));
+    color:var(--on-accent);
     border:none;
     border-radius:999px;
     font-family:inherit;
@@ -388,7 +415,10 @@
 
 <header>
   <div class="wrap header-inner">
-    <a class="logo" href="#top">旅Go Bhutan<span class="en">Tabi‑Go Bhutan</span></a>
+    <a class="logo" href="#top">
+      <svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+      旅Go Bhutan<span class="en">Tabi‑Go Bhutan</span>
+    </a>
     <a class="header-cta" href="#contact">旅の相談をする</a>
   </div>
 </header>
@@ -397,8 +427,11 @@
 
   <section class="hero">
     <svg class="ridges" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
-      <polygon points="0,420 0,260 180,150 340,230 520,90 700,210 860,120 1020,240 1200,150 1200,420" fill="var(--surface-2)" opacity="0.55"/>
-      <polygon points="0,420 0,320 220,220 420,300 640,180 860,290 1050,200 1200,280 1200,420" fill="var(--surface)" opacity="0.8"/>
+      <polygon points="0,420 0,260 180,150 340,230 520,90 700,210 860,120 1020,240 1200,150 1200,420" fill="var(--surface-2)" opacity="0.5"/>
+      <polygon points="0,420 0,320 220,220 420,300 640,180 860,290 1050,200 1200,280 1200,420" fill="var(--surface)" opacity="0.85"/>
+    </svg>
+    <svg class="enso" viewBox="0 0 200 200" aria-hidden="true">
+      <path d="M100 20 A80 80 0 1 1 34 145" fill="none" stroke="var(--gold)" stroke-width="7" stroke-linecap="round"/>
     </svg>
     <div class="wrap hero-inner">
       <h1>あなただけの旅程で、<br/>幸せの国へ。<span class="en">A personal itinerary to the Kingdom of Happiness.</span></h1>
@@ -409,8 +442,20 @@
     </div>
   </section>
 
-  <div class="flags-wrap"><svg class="flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="0" y1="4" x2="1140" y2="4" stroke="var(--ink-muted)" stroke-width="1"/>
+  <div class="divider-wrap"><svg class="divider flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
+    <line class="pole" x1="0" y1="4" x2="1140" y2="4"/>
+    <polygon points="20,4 44,4 32,22" fill="var(--accent)"/>
+    <polygon points="120,4 144,4 132,22" fill="var(--gold)"/>
+    <polygon points="220,4 244,4 232,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="320,4 344,4 332,22" fill="var(--jade)"/>
+    <polygon points="420,4 444,4 432,22" fill="var(--accent)"/>
+    <polygon points="520,4 544,4 532,22" fill="var(--gold)"/>
+    <polygon points="620,4 644,4 632,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="720,4 744,4 732,22" fill="var(--jade)"/>
+    <polygon points="820,4 844,4 832,22" fill="var(--accent)"/>
+    <polygon points="920,4 944,4 932,22" fill="var(--gold)"/>
+    <polygon points="1020,4 1044,4 1032,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="1104,4 1128,4 1116,22" fill="var(--jade)"/>
   </svg></div>
 
   <section id="concept">
@@ -442,8 +487,15 @@
     </div>
   </section>
 
-  <div class="flags-wrap"><svg class="flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="0" y1="4" x2="1140" y2="4" stroke="var(--ink-muted)" stroke-width="1"/>
+  <div class="divider-wrap"><svg class="divider waves" viewBox="0 0 1140 34" aria-hidden="true">
+    <defs>
+      <pattern id="seigaiha1" width="30" height="15" patternUnits="userSpaceOnUse">
+        <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
+        <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
+        <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--jade)" stroke-width="1" opacity="0.55"/>
+      </pattern>
+    </defs>
+    <rect width="1140" height="16" y="9" fill="url(#seigaiha1)"/>
   </svg></div>
 
   <section class="facts" id="why-bhutan">
@@ -481,8 +533,58 @@
     </div>
   </section>
 
-  <div class="flags-wrap"><svg class="flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="0" y1="4" x2="1140" y2="4" stroke="var(--ink-muted)" stroke-width="1"/>
+  <div class="divider-wrap"><svg class="divider flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
+    <line class="pole" x1="0" y1="4" x2="1140" y2="4"/>
+    <polygon points="60,4 84,4 72,22" fill="var(--jade)"/>
+    <polygon points="180,4 204,4 192,22" fill="var(--accent)"/>
+    <polygon points="300,4 324,4 312,22" fill="var(--gold)"/>
+    <polygon points="420,4 444,4 432,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="540,4 564,4 552,22" fill="var(--jade)"/>
+    <polygon points="660,4 684,4 672,22" fill="var(--accent)"/>
+    <polygon points="780,4 804,4 792,22" fill="var(--gold)"/>
+    <polygon points="900,4 924,4 912,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="1040,4 1064,4 1052,22" fill="var(--jade)"/>
+  </svg></div>
+
+  <section class="bond" id="bond">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="jp">日本とブータン</span>Japan × Bhutan</p>
+        <h2>仏教という、静かな絆。</h2>
+        <p class="sub">宗派も歴史も異なる二つの国が、なぜか同じ静けさでつながっている。<span class="en" style="display:block;">Two countries, different schools of Buddhism, connected by a surprisingly similar quiet.</span></p>
+      </div>
+      <div class="bond-grid">
+        <div class="bond-card reveal">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+          <h3>仏教という共通言語</h3>
+          <p>日本仏教とブータンのヴァジュラヤーナ(金剛乗)仏教。宗派は異なっても、山や自然を敬い、祈りを日々の暮らしに溶け込ませる感覚は驚くほど近いものがあります。</p>
+          <p class="en">Japanese Buddhism and Bhutan's Vajrayana tradition differ in school, yet both weave prayer into daily life and hold mountains as sacred ground.</p>
+        </div>
+        <div class="bond-card reveal">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 17c3-5 15-5 18 0"/><path d="M3 17v3M21 17v3M8 17v-2M16 17v-2M12 17v-3"/></svg>
+          <h3>西岡京治という架け橋</h3>
+          <p>1964年から28年、日本人農業技術者・西岡京治はブータンの農業近代化に尽力し、国王から「ダショー」の称号を授かりました。今も多くのブータン人に敬愛される、両国の絆の象徴です。</p>
+          <p class="en">From 1964, Japanese agronomist Keiji Nishioka spent 28 years modernizing Bhutanese farming — honored by the King with the title "Dasho," and still remembered with deep affection today.</p>
+        </div>
+        <div class="bond-card reveal">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 9l5-5 5 5"/><path d="M12 9l5-5 5 5"/><path d="M4 9v10M10 9v10M14 9v10M20 9v10"/><path d="M4 19h6M14 19h6"/></svg>
+          <h3>響き合う美意識</h3>
+          <p>移ろいゆく季節への眼差し、簡素の中の美しさ。京都の禅寺とブータンのゴンパ(僧院)は、遠く離れていても同じ静けさを湛えています。</p>
+          <p class="en">An eye for the changing seasons, beauty found in simplicity — a Kyoto Zen temple and a Bhutanese gompa hold the same quiet, however far apart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-wrap"><svg class="divider waves" viewBox="0 0 1140 34" aria-hidden="true">
+    <defs>
+      <pattern id="seigaiha2" width="30" height="15" patternUnits="userSpaceOnUse">
+        <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
+        <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
+        <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.55"/>
+      </pattern>
+    </defs>
+    <rect width="1140" height="16" y="9" fill="url(#seigaiha2)"/>
   </svg></div>
 
   <section id="process">
@@ -536,8 +638,17 @@
     </div>
   </section>
 
-  <div class="flags-wrap"><svg class="flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="0" y1="4" x2="1140" y2="4" stroke="var(--ink-muted)" stroke-width="1"/>
+  <div class="divider-wrap"><svg class="divider flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
+    <line class="pole" x1="0" y1="4" x2="1140" y2="4"/>
+    <polygon points="40,4 64,4 52,22" fill="var(--gold)"/>
+    <polygon points="160,4 184,4 172,22" fill="var(--jade)"/>
+    <polygon points="280,4 304,4 292,22" fill="var(--accent)"/>
+    <polygon points="400,4 424,4 412,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="520,4 544,4 532,22" fill="var(--gold)"/>
+    <polygon points="640,4 664,4 652,22" fill="var(--jade)"/>
+    <polygon points="760,4 784,4 772,22" fill="var(--accent)"/>
+    <polygon points="880,4 904,4 892,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="1020,4 1044,4 1032,22" fill="var(--gold)"/>
   </svg></div>
 
   <section id="guide">
@@ -551,17 +662,27 @@
         <p class="en">Whenever Japanese‑language support is needed, Tabi‑Go Bhutan steps in as your bridge.</p>
       </div>
       <div class="guide-art reveal" aria-hidden="true">
-        <svg viewBox="0 0 300 375" width="70%">
-          <polygon points="0,375 0,230 60,170 110,220 170,110 230,210 300,150 300,375" fill="var(--surface-2)"/>
-          <polygon points="150,110 170,150 130,150" fill="var(--accent)"/>
-          <circle cx="150" cy="70" r="26" fill="var(--pine-soft)"/>
+        <svg viewBox="0 0 300 375" width="72%">
+          <circle cx="150" cy="150" r="120" fill="none" stroke="var(--gold)" stroke-width="1.4" opacity="0.6"/>
+          <circle cx="150" cy="150" r="86" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.4"/>
+          <polygon points="150,60 210,270 90,270" fill="var(--surface-2)"/>
+          <polygon points="150,60 175,120 125,120" fill="var(--accent)"/>
+          <circle cx="150" cy="150" r="10" fill="var(--jade)"/>
+          <path d="M60 330c30-8 150-8 180 0" fill="none" stroke="var(--ink-muted)" stroke-width="1.2" opacity="0.5"/>
         </svg>
       </div>
     </div>
   </section>
 
-  <div class="flags-wrap"><svg class="flags" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="0" y1="4" x2="1140" y2="4" stroke="var(--ink-muted)" stroke-width="1"/>
+  <div class="divider-wrap"><svg class="divider waves" viewBox="0 0 1140 34" aria-hidden="true">
+    <defs>
+      <pattern id="seigaiha3" width="30" height="15" patternUnits="userSpaceOnUse">
+        <path d="M0 15 A15 15 0 0 1 30 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <path d="M5 15 A10 10 0 0 1 25 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+      </pattern>
+    </defs>
+    <rect width="1140" height="16" y="9" fill="url(#seigaiha3)"/>
   </svg></div>
 
   <section id="contact">
