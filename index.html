@@ -234,6 +234,8 @@
   .plan-day .d{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--accent);}
   .plan-day .t{color:var(--ink-muted);}
   .plan-note{font-size:0.8rem; color:var(--ink-muted); font-style:italic; margin:0;}
+  .plan-price{margin:0; font-size:0.98rem; font-weight:700; color:var(--accent);}
+  .plan-price .en{display:block; margin-top:2px; font-size:0.78rem; font-weight:400; font-style:italic; color:var(--ink-muted);}
   .plan-cta{align-self:flex-start; font-size:0.88rem; font-weight:600; padding:10px 22px; border-radius:999px; border:1px solid var(--ink); text-decoration:none;}
   .plan-cta:hover{background:var(--ink); color:var(--bg);}
   .note-box{max-width:840px; margin:0 auto; background:var(--jade-soft); border:1px solid var(--line); border-radius:18px; padding:clamp(24px,4vw,34px);}
@@ -285,6 +287,19 @@
   }
   .submit-btn:hover{transform:translateY(-2px);}
   .form-note{margin-top:14px; text-align:center; font-size:0.82rem; color:var(--ink-muted);}
+
+  .line-cta-box{max-width:640px; margin:0 auto 28px; text-align:center;}
+  .line-cta{
+    display:inline-flex; align-items:center; gap:10px; padding:15px 34px;
+    background:#06C755; color:#fff; font-weight:700; font-size:0.98rem; letter-spacing:0.02em;
+    border-radius:999px; text-decoration:none; box-shadow:var(--shadow);
+    transition:transform 0.2s ease;
+  }
+  .line-cta:hover{transform:translateY(-2px);}
+  .line-cta svg{width:22px; height:22px; flex:none;}
+  .line-cta-note{margin-top:12px; font-size:0.82rem; color:var(--ink-muted);}
+  .contact-divider{display:flex; align-items:center; gap:14px; max-width:640px; margin:32px auto; color:var(--ink-muted); font-size:0.8rem;}
+  .contact-divider::before, .contact-divider::after{content:""; flex:1; height:1px; background:var(--line);}
 
   footer{border-top:1px solid var(--line); padding-block:36px; text-align:center;}
   footer .logo{justify-content:center; font-size:1.1rem;}
@@ -551,6 +566,7 @@
             <div class="plan-day"><span class="d">6</span><span class="t">日本着</span></div>
           </div>
           <p class="plan-note">※ サンプル旅程です。日数・訪問地はご希望に合わせて調整します。<span class="en" style="display:block;">A sample itinerary — the length and stops all flex around what you want.</span></p>
+          <p class="plan-price">目安 1名様 ¥300,000〜<span class="en">From ¥300,000 per person — land arrangements only; international flights & Bhutan's government SDF are separate.</span></p>
           <a class="plan-cta" href="#contact">このプランについて相談する</a>
         </div>
         <div class="plan-card">
@@ -567,6 +583,7 @@
             <div class="plan-day"><span class="d">5</span><span class="t">日本着</span></div>
           </div>
           <p class="plan-note">※ 4〜5日間でも、ブータンの魅力は十分に味わえます。<span class="en" style="display:block;">Even four or five days is enough to feel what makes Bhutan different.</span></p>
+          <p class="plan-price">目安 1名様 ¥300,000〜<span class="en">From ¥300,000 per person — land arrangements only; international flights & Bhutan's government SDF are separate.</span></p>
           <a class="plan-cta" href="#contact">このプランについて相談する</a>
         </div>
       </div>
@@ -595,6 +612,42 @@
       <path d="M10 15 A5 5 0 0 1 20 15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
     </pattern></defs>
     <rect width="1140" height="16" y="9" fill="url(#sg3)"/>
+  </svg></div>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="jp">よくある質問</span>FAQ</p>
+        <h2>旅程を考えるうえで、よく聞かれること</h2>
+      </div>
+      <div class="hook-grid reveal">
+        <div class="hook-card">
+          <p class="q">「ベストシーズンはいつですか？」</p>
+          <p class="a">春(3〜5月)は花々が咲き誇り、秋(9〜11月)は空気が澄んで山々がくっきりと見える、二つの人気シーズンです。地域の祭り「ツェチュ」の時期に合わせるのもおすすめです。<span class="en">Spring (Mar–May) brings the valleys into bloom; autumn (Sep–Nov) gives the clearest mountain views. Timing your trip around a local tsechu festival is another great option.</span></p>
+        </div>
+        <div class="hook-card">
+          <p class="q">「体力に自信がなくても大丈夫ですか？」</p>
+          <p class="a">タクツァン僧院への道は片道約2〜3時間の山道ですが、途中まで馬を利用したり、休憩を挟みながらゆっくり歩くことも可能です。旅程はご相談のうえ、無理のない内容に組み立てます。<span class="en">The trail to Tiger's Nest takes roughly 2–3 hours each way, but a horse partway up and a slower, rest-stop pace are both options — we build the day around what's comfortable for you.</span></p>
+        </div>
+        <div class="hook-card">
+          <p class="q">「一人旅でも申し込めますか？」</p>
+          <p class="a">もちろんです。おひとり様、ご夫婦、ご友人同士など、人数に合わせて旅程と費用をご提案します。<span class="en">Absolutely — solo travelers, couples, and groups of friends are all welcome; the itinerary and cost are tailored to your party size.</span></p>
+        </div>
+        <div class="hook-card">
+          <p class="q">「キャンセルポリシーはどうなっていますか？」</p>
+          <p class="a">ビザ・許可証の申請前であれば柔軟に対応します。申請後のキャンセルには現地手配会社の規定に基づく費用が発生する場合がありますので、お問い合わせ時に詳しくご案内します。<span class="en">Changes are flexible before the visa/permit filing. Once it's filed, cancellation fees may apply per the local operator's policy — we'll walk you through the details when you inquire.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-wrap"><svg class="divider flags-div" viewBox="0 0 1140 34" preserveAspectRatio="none" aria-hidden="true">
+    <line class="pole" x1="0" y1="4" x2="1140" y2="4"/>
+    <polygon points="60,4 84,4 72,22" fill="var(--jade)"/><polygon points="180,4 204,4 192,22" fill="var(--accent)"/>
+    <polygon points="300,4 324,4 312,22" fill="var(--gold)"/><polygon points="420,4 444,4 432,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="540,4 564,4 552,22" fill="var(--jade)"/><polygon points="660,4 684,4 672,22" fill="var(--accent)"/>
+    <polygon points="780,4 804,4 792,22" fill="var(--gold)"/><polygon points="900,4 924,4 912,22" fill="var(--bg)" stroke="var(--ink-muted)" stroke-width="0.75"/>
+    <polygon points="1040,4 1064,4 1052,22" fill="var(--jade)"/>
   </svg></div>
 
   <section id="process">
@@ -725,6 +778,14 @@
         <h2>まずは、あなたの旅について<br/>聞かせてください。</h2>
         <p class="sub en">Tell us about the trip you have in mind.</p>
       </div>
+      <div class="line-cta-box reveal">
+        <a class="line-cta" href="https://line.me/ti/p/~kartikmalhotra96" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.69 2 10.24c0 4.08 3.58 7.49 8.41 8.14.33.07.78.22.89.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1 .87.55 1.08-.46 5.8-3.42 7.92-5.85C21.35 13.83 22 12.1 22 10.24 22 5.69 17.52 2 12 2z"/></svg>
+          LINEで旅の相談をする
+        </a>
+        <p class="line-cta-note">タップでLINEアプリが開きます。まずはお気軽にメッセージをどうぞ。<span class="en" style="display:block;">Opens LINE — send a message anytime, no obligation.</span></p>
+      </div>
+      <div class="contact-divider">またはフォームから<span class="en" style="font-style:italic;">&nbsp;/ or use the form</span></div>
       <form class="contact-box reveal" onsubmit="return false;">
         <div class="row-2">
           <div class="field">
@@ -751,7 +812,7 @@
           <textarea id="message" rows="4" placeholder="興味のあること、旅のイメージなどをお聞かせください。"></textarea>
         </div>
         <button class="submit-btn" type="submit">送信する</button>
-        <p class="form-note">※ フォームの送信機能は近日公開予定です。<span class="en" style="display:block;">Submission is coming soon — thanks for your patience.</span></p>
+        <p class="form-note">※ フォームの送信機能は近日公開予定です。お急ぎの方は上のLINEからご連絡ください。<span class="en" style="display:block;">Form submission is coming soon — for now, please reach out via LINE above.</span></p>
       </form>
     </div>
   </section>
